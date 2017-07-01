@@ -1,36 +1,43 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { _ } from 'meteor/underscore';
 
-export default function PrimaryNav() {
+export default function PrimaryNav({ siteConfig }) {
+  const { SiteLogo, topInfoPhone, topInfoEmail, socialMedia } = siteConfig;
   return (
-    <div className="navbar navbar-inverse navbar-fixed-top headroom" >
-      <div className="container">
-        <div className="navbar-header">
-          <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span className="icon-bar"></span> 
-            <span className="icon-bar"></span> 
-            <span className="icon-bar"></span> 
-          </button>
-          <a className="navbar-brand" href="index.html">
-            <img src="assets/images/logo.png" alt="Progressus HTML5 template" />
+    <div className="container magnis-header">	
+      <div className="row">		
+        <div className="col-md-12">
+          <a href="/">
+            <div className="site-logo site-logo-3 biglogo">
+              <img src={SiteLogo} alt="" />
+            </div>
           </a>
+          <div className="header-contacts header-contacts-3 hidden-phone visible-tablet visible-desktop">
+            {topInfoPhone &&
+              <p>
+                <i className="fa fa-phone"></i>
+                <strong>{topInfoPhone}</strong>
+              </p>
+            }
+            {topInfoEmail &&
+              <p>
+                <i className="fa fa-envelope"></i>
+                <a href="mailto:">{topInfoEmail}</a>
+              </p>
+            }
+          </div>
+          <div className="header-sub-wrapper header-sub-wrapper-3">
+            <div className="header-social-buttons header-social-buttons-3">
+              {Object.keys(socialMedia).map((key, index) =>
+                <a target="_blank" href={socialMedia[key].url} key={index}>
+                  <i className={`fa ${socialMedia[key].icon}`}></i>
+                </a>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="navbar-collapse collapse">
-          <ul className="nav navbar-nav pull-right">
-            <li className="active"><a href="#">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li className="dropdown">
-              <a href="#" className="dropdown-toggle" data-toggle="dropdown">More Pages <b className="caret"></b></a>
-              <ul className="dropdown-menu">
-                <li><a href="sidebar-left.html">Left Sidebar</a></li>
-                <li className="active"><a href="sidebar-right.html">Right Sidebar</a></li>
-              </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a className="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
-          </ul>
-        </div>
-      </div>
-	  </div>
+      </div> 
+    </div>
   );
 }

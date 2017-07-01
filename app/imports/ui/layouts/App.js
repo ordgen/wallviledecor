@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import Index from '../pages/Index';
+import IndexPage from '../containers/IndexPage';
 
 export default function App() {
   return (
     <Router>
-      <div className="wallvile">
+      <div className="ordgen">
         <Switch>
-          <Route exact path="/" component={Index}/>
+          <Route exact path="/" component={IndexPage}/>
         </Switch>
       </div>
     </Router>
