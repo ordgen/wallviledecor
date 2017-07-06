@@ -1,0 +1,1 @@
+import '../../api/site-config/server/publications.js';

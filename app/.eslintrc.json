@@ -1,3 +1,21 @@
 {
-  "parser": "babel-eslint"
+  "extends": [
+    "airbnb", 
+    "plugin:meteor/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "meteor",
+    "react"
+  ],
+  "rules": {
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions": 0
+	},
+	"parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  }
 }

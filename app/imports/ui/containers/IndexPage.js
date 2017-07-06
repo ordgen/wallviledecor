@@ -1,7 +1,7 @@
 import React from 'react';
 import { composeWithTracker } from 'react-komposer';
 import { Meteor } from 'meteor/meteor';
-import SiteConfig from '/imports/api/siteConfig/collection';
+import SiteConfig from '/imports/api/site-config/site-config.js';
 import IndexPage from '../pages/IndexPage';
 
 const composer = (params, onData) => {

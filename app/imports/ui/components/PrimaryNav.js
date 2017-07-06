@@ -4,6 +4,18 @@ import { _ } from 'meteor/underscore';
 
 export default function PrimaryNav({ siteConfig }) {
   const { SiteLogo, topInfoPhone, topInfoEmail, socialMedia } = siteConfig;
+
+  const renderSocialButtons = () => (key, index) => {
+    const media = socialMedia[key];
+    if (media.isEnabled) {
+      return (
+        <a target="_blank" href={media.url} key={index}>
+          <i className={`fa ${media.icon}`}></i>
+        </a>
+      );
+    }
+  };
+
   return (
     <div className="container magnis-header">	
       <div className="row">		
@@ -29,11 +41,7 @@ export default function PrimaryNav({ siteConfig }) {
           </div>
           <div className="header-sub-wrapper header-sub-wrapper-3">
             <div className="header-social-buttons header-social-buttons-3">
-              {Object.keys(socialMedia).map((key, index) =>
-                <a target="_blank" href={socialMedia[key].url} key={index}>
-                  <i className={`fa ${socialMedia[key].icon}`}></i>
-                </a>
-              )}
+              {Object.keys(socialMedia).map(renderSocialButtons())}
             </div>
           </div>
         </div>
