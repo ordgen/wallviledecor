@@ -10,5 +10,29 @@ SliderImages.deny({
   remove() { return true; },
 });
 
-export default SliderImages;
+SliderImages.schema = new SimpleSchema({
+  _id: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+  },
+  imageUrl: {
+    type: String,
+  },
+  imageDescription: {
+    type: String,
+  },
+  callToAction: {
+    type: Object,
+    optional: true,
+  },
+  'callToAction.label': {
+    type: String,
+  },
+  'callToAction.url': {
+    type: String,
+  },
+});
 
+SliderImages.attachSchema(SliderImages.schema);
+
+export default SliderImages;

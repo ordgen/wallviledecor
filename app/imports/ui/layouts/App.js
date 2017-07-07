@@ -9,9 +9,9 @@ export default function App() {
     <Router>
       <div className="ordgen">
         <Switch>
-          <Route exact path="/" component={IndexPage}/>
+          <Route exact path="/" component={IndexPage} />
         </Switch>
       </div>
     </Router>
   );
-};
+}
