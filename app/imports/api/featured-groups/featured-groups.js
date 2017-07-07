@@ -25,6 +25,11 @@ FeaturedGroups.schema = new SimpleSchema({
     regEx: SimpleSchema.RegEx.Id,
     optional: true,
   },
+  featuredItemTemplate: {
+    type: String,
+    allowedValues: ['minimal', 'detailed'],
+    defaultValue: 'minimal',
+  },
 });
 
 FeaturedGroups.attachSchema(FeaturedGroups.schema);

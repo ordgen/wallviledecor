@@ -29,11 +29,6 @@ SiteConfig.schema = new SimpleSchema({
     type: String,
     regEx: SimpleSchema.RegEx.Id,
   },
-  featuredItemTemplate: {
-    type: String,
-    allowedValues: ['minimal', 'detailed'],
-    defaultValue: 'minimal',
-  },
   topInfoPhone: {
     type: String,
     label: 'Site Phone Number',
